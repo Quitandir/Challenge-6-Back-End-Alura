@@ -3,9 +3,10 @@ const database = require('../models');
 
 class AdocaoController {
     static async pegaTodasAdocoes (req, res) {
-        
+        const {abrigoId} = req.params
+
         try {
-            const todasAdocoes = await database.Adocoes.findAll()
+            const todasAdocoes = await database.Adocoes.findAll( {where: { abrigo_id: Number(abrigoId)}})
             if(todasAdocoes.length === 0) return res.status(200).json({msg: 'Nenhuma adoção encontrada.'})
             return res.status(200).json(todasAdocoes)
         } catch (error) {

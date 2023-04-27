@@ -26,7 +26,7 @@ router.delete('/pets/:id', PetController.apagaPet)
 
 // Método para adoções
 
-router.get('/adocoes', AdocaoController.pegaTodasAdocoes)
+router.get('/adocoes/:abrigoId', AdocaoController.pegaTodasAdocoes)
 router.get('/adocoes/:id', AdocaoController.pegaUmaAdocao)
 router.post('/abrigos/:abrigoId/adocoes/tutores/:tutorId/pets/:petId', AdocaoController.criaAdocao)
 router.delete('/adocoes/:id', AdocaoController.apagaAdocao)
