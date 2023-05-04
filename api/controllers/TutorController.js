@@ -63,9 +63,9 @@ class TutorController {
                   maxAge: maxAge * 1000, // 3hrs in ms
                 });
                 
-                res.status(200).json({
-                  message: "Tutor cadastrado com sucesso.",
+                res.status(201).json({
                   tutor,
+                  message: "Tutor cadastrado com sucesso.",
                 });
               })
               .catch((error) =>
@@ -134,7 +134,7 @@ class TutorController {
             await database.Tutores.update(novasInfos, {where: { id: Number(id)}} )
             
             const tutorAtualizado = await database.Tutores.findOne( {where: { id: Number(id)}})
-            return res.status(200).json(tutorAtualizado)
+            return res.status(201).json(tutorAtualizado)
         } catch (error) {
             return res.status(500).json(error.message)
         }
